@@ -1,0 +1,61 @@
+[{
+  "bookSourceComment": "",
+  "bookSourceGroup": "轻小说",
+  "bookSourceName": "哔哩轻小说~linovelib",
+  "bookSourceType": 0,
+  "bookSourceUrl": "https://w.linovelib.com",
+  "bookUrlPattern": "",
+  "customOrder": -3627,
+  "enabled": true,
+  "enabledCookieJar": false,
+  "enabledExplore": true,
+  "enabledReview": false,
+  "exploreUrl": "最近更新::https://w.linovelib.com/wenku/lastupdate_0_0_0_0_0_0_0_{{page}}_0.html\n恋爱::https://w.linovelib.com/tagarticle/%E6%81%8B%E7%88%B1/{{page}}.html\n青春::https://w.linovelib.com/tagarticle/%E9%9D%92%E6%98%A5/{{page}}.html\n青梅竹马::https://w.linovelib.com/tagarticle/%E9%9D%92%E6%A2%85%E7%AB%B9%E9%A9%AC/{{page}}.html\n校园::https://w.linovelib.com/tagarticle/%E6%A0%A1%E5%9B%AD/{{page}}.html\n后宫::https://w.linovelib.com/tagarticle/%E5%90%8E%E5%AE%AB/{{page}}.html\n奇幻::https://w.linovelib.com/tagarticle/%E5%A5%87%E5%B9%BB/{{page}}.html\n冒险::https://w.linovelib.com/tagarticle/%E5%86%92%E9%99%A9/{{page}}.html",
+  "lastUpdateTime": 1671719445674,
+  "loginUrl": "",
+  "respondTime": 180000,
+  "ruleBookInfo": {
+    "author": "[property=\"og:novel:author\"]@content",
+    "coverUrl": "[property=\"og:image\"]@content",
+    "init": "meta",
+    "intro": "[property=\"og:description\"]@content",
+    "kind": "[property=\"og:novel:status\"]@content&&[property=\"og:novel:category\"]@content",
+    "lastChapter": "[property=\"og:novel:latest_chapter_name\"]@content",
+    "name": "[property=\"og:novel:book_name\"]@content",
+    "tocUrl": "[property=\"og:novel:read_url\"]@content",
+    "wordCount": "[property=\"og:novel:update_time\"]@content##\\h.+"
+  },
+  "ruleContent": {
+    "content": "class.acontent@html",
+    "imageStyle": "full",
+    "nextContentUrl": "##url_next:'(/.+?_\\d+\\.html)##$1###",
+    "replaceRegex": "##[◇]|\\s*[（](本章未完|继续下一页)[）]\\s*|\\h(?:class|border)=\".+?\"|(?<=「)……(?=\\w)|^\\h+[\\u4e00-\\u9fa5]+版 转自 .+\\n(\\h+\\w+：.+\\n){0,5}"
+  },
+  "ruleExplore": {
+    "author": "class.book-author@text",
+    "bookList": "class.book-li",
+    "bookUrl": "a@href",
+    "coverUrl": "img@data-original",
+    "intro": "class.book-desc@text",
+    "kind": "class.tag-small@text",
+    "name": "class.book-title@text"
+  },
+  "ruleReview": {},
+  "ruleSearch": {
+    "author": "class.book-author@textNodes",
+    "bookList": "class.book-ol book-ol-normal@tag.li",
+    "bookUrl": "tag.a.0@href##\\.html##/catalog",
+    "coverUrl": "img@data-original",
+    "intro": "class.book-desc@text||class.book-intro@text",
+    "kind": "class.tag-small@text##\\s+##,",
+    "name": "class.book-title-x@class.book-title@text"
+  },
+  "ruleToc": {
+    "chapterList": "<js>result.replace(/(\\/novel\\/.+?)(\\.html\" class=.+?\\n.+? href=\")(javascript:cid\\(0\\))(?=\" class=)/g,\"$1$2$1−.html\").replace(/(javascript:cid\\(0\\))(\" class=.+?\\n.+? href=\")(\\/novel\\/.+?)(?=\\.html\" class=)/g,\"$3−−.html$2$3\")</js>\n//ol/*\n<js>\n//按卷分隔\nsub=String(result).slice(1,-1).split(/, (?=<li class=\"chapter-bar chapter-li\")/);\ner=0;\nsm=java.get('sm');\n\nif(sub.length>=1)for(var i=0;i<sub.length;i++){\n//捕获卷名\njm=sub[i].match(/\\s*([^<>\\n]+)\\s*<\\/li/);\nif(!jm)continue;\n\n//插入卷名\nsub[i]=sub[i]\n.replace(/html([^>]*)><span([^>]*)>/g,'html$1><span$2>'+jm[1]+' ')\n\n//按卷分块\nsub[i]='< a href= "https://translate.google.cn/#view=home&op=translate&sl=zh-CN&tl=en&text='+sm+'/'+jm[1]+'\">'+jm[1]+'</ a>'+sub[i]\n};\n//合并结果\nsub.join(\"\");\n\n</js>a",
+    "chapterName": "text",
+    "chapterUrl": "href\n<js>\nif(result.indexOf(\"−\")!=-1){cid=parseInt(result.match(/\\d+(?=−)/)[0]);\nnex=cid+1;pre=cid-1;\nresult=result.replace(/(\\d+)−−/,pre).replace(/(\\d+)−/,nex)}\nresult\n</js>",
+    "updateTime": "@js:chapter.url"
+  },
+  "searchUrl": "https://w.linovelib.com/S8/{{key}}_{{page}}.html",
+  "weight": 0
+}]
